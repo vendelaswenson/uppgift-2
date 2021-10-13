@@ -1,30 +1,30 @@
-'use strict';
+"use strict";
 
-const checkInPass = document.querySelector('.check-in');
-const fastTrack = document.querySelector('.fast-track');
-const container = document.querySelector('#check-ins');
-const removeFirstInLine = document.querySelector('.remove-first');
-let myOrdered = document.querySelector('.ordered-list');
-let listItems = '';
+const checkInPass = document.querySelector(".check-in");
+const fastTrack = document.querySelector(".fast-track");
+const container = document.querySelector("#check-ins");
+const removeFirstInLine = document.querySelector(".remove-first");
+let myOrdered = document.querySelector(".ordered-list");
+let listItems = "";
 let showInput = false;
 
 const SAS = {
-  airline: 'SAS',
-  iataCode: 'SK',
+  airline: "SAS",
+  iataCode: "SK",
   bookings: [],
 };
 
-const addInput = fastTrack => {
+const addInput = (fastTrack) => {
   showInput = true;
-  const nameInput = document.createElement('input');
-  const addBtn = document.createElement('button');
-  nameInput.type = 'text';
-  nameInput.placeholder = 'Enter passengers name here';
+  const nameInput = document.createElement("input");
+  const addBtn = document.createElement("button");
+  nameInput.type = "text";
+  nameInput.placeholder = "Enter passengers name here";
   container.appendChild(nameInput);
 
   container.appendChild(addBtn);
-  addBtn.innerHTML = 'Add';
-  addBtn.addEventListener('click', () => {
+  addBtn.innerHTML = "Add";
+  addBtn.addEventListener("click", () => {
     alert(
       `${nameInput.value} is now checked in on ${SAS.airline} flight ${SAS.iataCode}`
     );
@@ -38,7 +38,7 @@ const addInput = fastTrack => {
   });
 };
 
-checkInPass.addEventListener('click', () => {
+checkInPass.addEventListener("click", () => {
   /*   const nameInput = document.createElement('input');
   nameInput.type = 'text';
   nameInput.placeholder = 'Enter passengers name here';
@@ -53,7 +53,6 @@ checkInPass.addEventListener('click', () => {
       `${nameInput.value} is now checked in on ${SAS.airline} flight ${SAS.iataCode}`
     ); */
 
-  /*  SAS.bookings.push(addInput()); */
   if (!showInput) addInput();
 
   /*   listItems = document.createElement('li');
@@ -63,7 +62,7 @@ checkInPass.addEventListener('click', () => {
   container.removeChild(addBtn); */
 });
 
-fastTrack.addEventListener('click', () => {
+fastTrack.addEventListener("click", () => {
   if (!showInput) addInput(fastTrack);
   /*   const nameInput = document.createElement('input');
   nameInput.type = 'text';
@@ -95,20 +94,20 @@ fastTrack.addEventListener('click', () => {
   }); */
 });
 
-removeFirstInLine.addEventListener('click', () => {
+removeFirstInLine.addEventListener("click", () => {
   SAS.bookings.shift();
   updateList();
 
   if (SAS.bookings.length < 1)
-    alert('There’s currently no people standing in line');
+    alert("There’s currently no people standing in line");
 });
 
 const updateList = () => {
   while (myOrdered.firstChild) {
     myOrdered.removeChild(myOrdered.firstChild);
   }
-  SAS.bookings.forEach(i => {
-    const listItem = document.createElement('li');
+  SAS.bookings.forEach((i) => {
+    const listItem = document.createElement("li");
     listItem.innerText = i;
     myOrdered.appendChild(listItem);
   });
