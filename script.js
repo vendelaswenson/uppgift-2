@@ -21,7 +21,7 @@ const addInput = (fastTrack) => {
   addBtn.innerHTML = "Add";
 
   addBtn.addEventListener("click", () => {
-    alert(`${nameInput.value} is now checked in`);
+    alert(`${nameInput.value} is now in line`);
     fastTrack
       ? bookings.unshift(nameInput.value)
       : bookings.push(nameInput.value);
