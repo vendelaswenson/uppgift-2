@@ -17,9 +17,9 @@ const addInput = (fastTrack) => {
   nameInput.type = "text";
   nameInput.placeholder = "Enter passengers name here";
   container.appendChild(nameInput);
-
   container.appendChild(addBtn);
   addBtn.innerHTML = "Add";
+
   addBtn.addEventListener("click", () => {
     alert(`${nameInput.value} is now checked in`);
     fastTrack
